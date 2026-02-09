@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Teddy Day 🧸❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+      cursor: url('https://cdn-icons-png.flaticon.com/32/616/616408.png'), auto;
+    }
+
+    body.popup-open .card {
+      filter: blur(6px);
+      transition: 0.5s;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      padding: 35px 25px;
+      border-radius: 25px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      max-width: 380px;
+      width: 90%;
+      animation: pop 1s ease;
+      z-index: 1;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .teddy-img {
+      width: 180px;
+      margin-bottom: 15px;
+      border-radius: 20px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    h1 {
+      font-family: 'Sacramento', cursive;
+      font-size: 3em;
+      margin-bottom: 10px;
+      color: #fff0f5;
+      text-shadow: 0 0 12px rgba(255,255,255,0.6);
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    button {
+      padding: 12px 26px;
+      border-radius: 50px;
+      border: none;
+      font-size: 1em;
+      cursor: pointer;
+      background: #ff6f91;
+      color: white;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: #ff3e6c;
+    }
+
+    #popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .popup-box {
+      background: white;
+      color: #333;
+      padding: 30px;
+      border-radius: 20px;
+      width: 85%;
+      max-width: 380px;
+      text-align: center;
+      animation: pop 0.8s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .popup-box h2 {
+      font-family: 'Sacramento', cursive;
+      font-size: 2.4em;
+      color: #ff6f91;
+    }
+
+    #typedText {
+      min-height: 160px;
+      margin-top: 15px;
+      font-size: 1.05em;
+      white-space: pre-line;
+    }
+
+    .typing {
+      animation: heartbeat 1.6s infinite, glow 2s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px rgba(255,111,145,0.4); }
+      50% { text-shadow: 0 0 18px rgba(255,111,145,0.9); }
+      100% { text-shadow: 0 0 5px rgba(255,111,145,0.4); }
+    }
+
+    .line {
+      opacity: 0;
+      animation: fadeIn 1.2s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .close {
+      margin-top: 20px;
+      background: #ff6f91;
+    }
+
+    .teddy {
+      position: absolute;
+      font-size: 24px;
+      animation: float 6s linear infinite;
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh); opacity: 1; }
+      to { transform: translateY(-10vh); opacity: 0; }
+    }
+
+    .heart {
+      position: fixed;
+      font-size: 18px;
+      animation: floatHeart 4s linear forwards;
+      pointer-events: none;
+      z-index: 11;
+    }
+
+    @keyframes floatHeart {
+      from { transform: translateY(100vh) scale(1); opacity: 1; }
+      to { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+
+    .music-btn {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 50%;
+      padding: 12px 14px;
+      font-size: 18px;
+      cursor: pointer;
+      z-index: 12;
+    }
+  </style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="https://raw.githubusercontent.com/ank0809/Rose-day/e8b44a007b0661bc1c584f677fe703e3a44e7676/tum-se-hi-from-jab-we-met_8h436GOY.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+  <img src="https://cdn-icons-png.flaticon.com/512/235/235394.png" class="teddy-img" alt="Teddy">
+  <h1>Happy Teddy Day 🧸❤️</h1>
+  <p>
+    If hugs had a shape,<br>
+    they’d look just like a teddy…<br>
+    warm, soft & full of love 🥰
+  </p>
+  <button id="openBtn">For You 🧸</button>
+</div>
+
+<div id="popup">
+  <div class="popup-box">
+    <h2>My Little Teddy 💖</h2>
+    <div id="typedText"></div>
+    <button class="close" id="closeBtn">Always Yours ❤️</button>
+  </div>
+</div>
+
+<div class="music-btn" id="musicBtn">🎵</div>
+
+<script>
+  const popup = document.getElementById("popup");
+  const openBtn = document.getElementById("openBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const typedText = document.getElementById("typedText");
+  const bgMusic = document.getElementById("bgMusic");
+  const musicBtn = document.getElementById("musicBtn");
+
+  const lines = [
+    "If I could give you one thing today…",
+    "it would be a teddy 🧸",
+    "",
+    "Not just to hug when you’re happy,",
+    "but to hold when you’re tired or sad.",
+    "",
+    "Let me be your teddy—",
+    "your comfort, your warmth, your safe place 🤍",
+    "",
+    "Happy Teddy Day, my love 💖"
+  ];
+
+  document.body.addEventListener("click", () => {
+    bgMusic.play().catch(()=>{});
+  }, { once: true });
+
+  musicBtn.onclick = () => {
+    bgMusic.paused ? bgMusic.play() : bgMusic.pause();
+  };
+
+  openBtn.onclick = () => {
+    popup.style.display = "flex";
+    document.body.classList.add("popup-open");
+    startTyping();
+    startHearts();
+  };
+
+  closeBtn.onclick = () => {
+    popup.style.display = "none";
+    document.body.classList.remove("popup-open");
+  };
+
+  function startTyping() {
+    typedText.innerHTML = "";
+    typedText.classList.add("typing");
+    let i = 0;
+    function showLine() {
+      if (i >= lines.length) {
+        typedText.classList.remove("typing");
+        return;
+      }
+      const d = document.createElement("div");
+      d.className = "line";
+      d.textContent = lines[i++];
+      typedText.appendChild(d);
+      setTimeout(showLine, 700);
+    }
+    showLine();
+  }
+
+  function startHearts() {
+    const interval = setInterval(() => {
+      if (popup.style.display !== "flex") {
+        clearInterval(interval);
+        return;
+      }
+      const h = document.createElement("div");
+      h.className = "heart";
+      h.textContent = "🧸";
+      h.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 4000);
+    }, 350);
+  }
+
+  setInterval(() => {
+    const t = document.createElement("div");
+    t.className = "teddy";
+    t.textContent = "🧸";
+    t.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 7000);
+  }, 500);
+</script>
+
+</body>
+</html>
